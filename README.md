@@ -1,8 +1,8 @@
-# Distributed Clients - Multi-Client Chat Server
+# Distributed Clients - Multi Client Chat Server
 
 A Python-based distributed client-server system demonstrating concurrent connections, threading, and real-time message broadcasting.
 
-## 📖 Overview
+## Overview
 
 This project implements a distributed client-server architecture where multiple clients can connect to a central server and communicate in real-time. The server manages concurrent connections through threading, ensuring each client receives messages from all other clients while maintaining thread-safe operations.
 
