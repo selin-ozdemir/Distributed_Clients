@@ -50,12 +50,14 @@ class DistributedServer:
         
     def broadcast(self, message, exclude=None):
         with self.lock:
-            for cid, conn in list(self.clients.items()):
-                if cid != exclude:
-                    try:
-                        conn.send(f"{message}\n".encode())
-                    except:
-                        pass
+            clients_snapshot = list(self.clients.items())
+
+        for cid, conn in clients_snapshot:
+            if cid != exclude:
+                try:
+                    conn.send(f"{message}\n".encode())
+                except:  # noqa: E722
+                    pass
 
     def disconnect_client(self, client_id, conn):
         with self.lock:
